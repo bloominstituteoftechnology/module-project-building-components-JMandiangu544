@@ -42,9 +42,9 @@ function moduleProject3() {
 
     const favLangP = document.createElement('p')
     const favLanguage = languages.find(lang => lang.id === learner.favLanguage)
-    favLangP.textContent = `Favorite Language: ${learner.favLanguage}`
+    favLangP.textContent = `Favorite Language: ${favLanguage.name}`;
 
-    [nameP, dobP, favLangP].forEach(p => {
+    [nameP, idElement, dobP, favLangP].forEach(p => {
       card.appendChild(p)
     })
     return card
