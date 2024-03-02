@@ -4,7 +4,15 @@ function moduleProject3() {
 
   function buildNav(links) {
     //  ✨ do your magic here
-    return document.createElement('nav')
+    const container = document.createElement('nav')
+    links.forEach(link => {
+      let a = document.createElement('a')
+      a.href = link.href
+      a.title = link.title
+      a.textContent = link.textContent
+      container.appendChild(a)
+    });
+    return container
   }
 
   // ❗ DOM creation using your `buildNav` component (do not change):
@@ -20,6 +28,26 @@ function moduleProject3() {
 
   function buildLearnerCard(learner, languages) {
     //  ✨ do your magic here
+    const card = document.createElement('div')
+    card.classList.add('learner-card')
+
+    const nameP = document.createElement('p')
+    nameP.textContent = learner.fullName
+
+    const idElement = document.createElement('p')
+    idElement.textContent = `Learner ID: ${learner.id}`
+
+    const dobP = document.createElement('p')
+    dobP.textContent = `Date of birth: ${learner.dateOfBirth}`
+
+    const favLangP = document.createElement('p')
+    const favLanguage = languages.find(lang => lang.id === learner.favLanguage)
+    favLangP.textContent = `Favorite Language: ${learner.favLanguage}`
+
+    [nameP, dobP, favLangP].forEach(p => {
+      card.appendChild(p)
+    })
+    return card
   }
 
   {
